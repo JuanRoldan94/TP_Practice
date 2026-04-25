@@ -30,7 +30,7 @@ namespace GestionDeFlotas.Models
 
         public abstract double CalcularCostoServicio(double distanciaKM);
 
-        public virtual string toString() { return $"Patente: {Patente}. Marca: {Marca}, Kilometraje: {_kilometraje}. Estado Operativo: {EstadoOperativo}"; }
+        public virtual string ObtenerDetalles() { return $"Patente: {Patente}. Marca: {Marca}, Kilometraje: {_kilometraje}. Estado Operativo: {EstadoOperativo}"; }
     }
 
 }

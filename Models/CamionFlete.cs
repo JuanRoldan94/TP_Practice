@@ -9,7 +9,7 @@ namespace GestionDeFlotas.Models
     public class CamionFlete : Vehiculo, IMantenimiento
     {
 
-        public double CapacidadCarga { get; set; }
+        public double CapacidadCarga { get; set; } = 1000;
         public void RealizarService()
         {
             Console.WriteLine("Realizando service al camion de flete...");
@@ -25,7 +25,7 @@ namespace GestionDeFlotas.Models
             //El costo por kilometro es de 5.0, pero se le suma el seguro de carga para obtener el costo total del servicio.
             return (distanciaKM* 5.0) + 1000;
         }
-        public override string toString() { return $"Patente: {Patente}. Marca: {Marca}, Kilometraje: {Kilometraje}. Estado Operativo: {EstadoOperativo}"; }
+        public override string ObtenerDetalles() { return base.ObtenerDetalles() + $"Capacidad carga: {CapacidadCarga} KG."; }
 
     }
 }

@@ -58,7 +58,7 @@ namespace GestionDeFlotas.Models
             Console.WriteLine("--- Lista de Vehículos en la Flota ---");
             foreach (Vehiculo v in Vehiculos)
             {
-                Console.WriteLine($"Patente: {v.Patente} | Marca: {v.Marca} | Km: {v.Kilometraje}");
+                Console.WriteLine(v.ObtenerDetalles());
             }
         }
 
