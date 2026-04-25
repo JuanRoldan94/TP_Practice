@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Runtime.Serialization.Formatters;
 using System.Text;
 using GestionDeFlotas.Utils;
 
 namespace GestionDeFlotas.Models
 {
-    internal class Servicio
+    public class Servicio
     {
         public List<Vehiculo> Vehiculos { get; set; }
 
@@ -18,7 +19,6 @@ namespace GestionDeFlotas.Models
             int tipo = ValidarConsola.IngresarEntero("Ingresar tipo de vehiculo:\n" +
                 "1. Grua Auxilio\n" +
                 "2. Camion Flete", 1, 2);
-
             string patente = ValidarConsola.PedirPatenteValida("Ingresar patente");
 
             if (PatenteExiste(patente))
@@ -27,7 +27,8 @@ namespace GestionDeFlotas.Models
             }
 
             string Marca = ValidarConsola.PedirCadena("Ingresar Marca del vehiculo");
-            double Kilometraje = double.Parse(Console.ReadLine());
+            Console.Write("Ingresar Km: ");
+            double Kilometraje = ValidarConsola.IngresarDouble("Ingresar km del vehiculo: ");
 
             Vehiculo nuevoVehiculo;
             if (tipo == 1)
@@ -40,17 +41,32 @@ namespace GestionDeFlotas.Models
             }
 
             nuevoVehiculo.Kilometraje = Kilometraje;
-            nuevoVehiculo.patente = patente;
+            nuevoVehiculo.Patente = patente;
             nuevoVehiculo.Marca = Marca;
 
             Vehiculos.Add(nuevoVehiculo);
+        }
+
+        public void ListarFlota()
+        {
+            if (Vehiculos.Count == 0)
+            {
+                Console.WriteLine("La flota está vacía. No hay vehículos registrados.");
+                return;
+            }
+
+            Console.WriteLine("--- Lista de Vehículos en la Flota ---");
+            foreach (Vehiculo v in Vehiculos)
+            {
+                Console.WriteLine($"Patente: {v.Patente} | Marca: {v.Marca} | Km: {v.Kilometraje}");
+            }
         }
 
         public bool PatenteExiste(string patente)
         {
             foreach (Vehiculo v in Vehiculos)
             {
-                if (v.patente == patente)
+                if (v.Patente == patente)
                 {
                     Console.WriteLine("Esa patente ya esta asignada a otro vehiculo.");
                     return true;

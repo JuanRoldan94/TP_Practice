@@ -4,9 +4,9 @@ using System.Text;
 
 namespace GestionDeFlotas.Models
 {
-    internal abstract class Vehiculo
+    public abstract class Vehiculo
     {
-        public string? patente { get; set; }
+        public string? Patente { get; set; }
         public string? Marca { get; set; }
         private double _kilometraje;
         public Boolean EstadoOperativo { get; set; } = true;
@@ -28,7 +28,9 @@ namespace GestionDeFlotas.Models
         }
         public Vehiculo() { }
 
-        public abstract double CalcularCostoServicio(double distancaiKM);
+        public abstract double CalcularCostoServicio(double distanciaKM);
+
+        public virtual string toString() { return $"Patente: {Patente}. Marca: {Marca}, Kilometraje: {_kilometraje}. Estado Operativo: {EstadoOperativo}"; }
     }
 
 }

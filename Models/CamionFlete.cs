@@ -6,7 +6,7 @@ using GestionDeFlotas.Interfaces;
 
 namespace GestionDeFlotas.Models
 {
-    internal class CamionFlete : Vehiculo, IMantenimiento
+    public class CamionFlete : Vehiculo, IMantenimiento
     {
 
         public double CapacidadCarga { get; set; }
@@ -25,10 +25,7 @@ namespace GestionDeFlotas.Models
             //El costo por kilometro es de 5.0, pero se le suma el seguro de carga para obtener el costo total del servicio.
             return (distanciaKM* 5.0) + 1000;
         }
+        public override string toString() { return $"Patente: {Patente}. Marca: {Marca}, Kilometraje: {Kilometraje}. Estado Operativo: {EstadoOperativo}"; }
 
-        bool IMantenimiento.VerificarEstado()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

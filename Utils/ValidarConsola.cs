@@ -15,7 +15,7 @@ namespace GestionDeFlotas.Utils
 
             while (!esValido)
             {
-                Console.WriteLine($"{ingreso} ({min} - {max})");
+                Console.WriteLine($"{ingreso}");
                 string input = Console.ReadLine();
 
                 if (int.TryParse(input, out resultado))
@@ -72,6 +72,25 @@ namespace GestionDeFlotas.Utils
                 }
             }
             return input;
+        }
+
+        public static double IngresarDouble(string ingreso)
+        {
+            double resultado;
+            bool esValido = false;
+
+            while (!esValido)
+            {
+                Console.WriteLine($"{ingreso}");
+                string input = Console.ReadLine();
+
+                if (double.TryParse(input, out resultado))
+                {
+                    esValido = true;
+                    return resultado;
+                }
+            }
+            return 0;
         }
     }
 }
