@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.Java;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace GestionDeFlotas.Utils
 {
-    internal class ValidarConsola
+    public class ValidarConsola
     {
         public static int IngresarEntero(string ingreso, int min, int max) 
         {

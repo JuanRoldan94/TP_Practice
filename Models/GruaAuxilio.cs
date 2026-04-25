@@ -7,7 +7,7 @@ namespace GestionDeFlotas.Models
 {
     internal class GruaAuxilio : Vehiculo, IMantenimiento
     {
-        public bool TienePlataforma { get; set; }
+        public bool TienePlataforma { get; set; } = true;
         public void RealizarService()
         {
             Console.WriteLine("Realizando service a la grua de auxilio...");
