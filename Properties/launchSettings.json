@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "GestionDeFlotas": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
