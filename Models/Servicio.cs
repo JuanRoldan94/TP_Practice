@@ -18,7 +18,7 @@ namespace GestionDeFlotas.Models
         public void AgregarVehiculo() {
             int tipo = ValidarConsola.IngresarEntero("Ingresar tipo de vehiculo:\n" +
                 "1. Grua Auxilio\n" +
-                "2. Camion Flete", 1, 2);
+                "2. Camion Flete");
             string patente = ValidarConsola.PedirPatenteValida("Ingresar patente");
 
             if (PatenteExiste(patente))
@@ -35,7 +35,7 @@ namespace GestionDeFlotas.Models
             {
                 nuevoVehiculo = new GruaAuxilio();
             }
-            else 
+            else
             {
                 nuevoVehiculo = new CamionFlete();
             }

@@ -8,31 +8,23 @@ namespace GestionDeFlotas.Utils
 {
     public class ValidarConsola
     {
-        public static int IngresarEntero(string ingreso, int min, int max) 
+        public static int IngresarEntero(string ingreso) 
         {
-            int resultado;
-            bool esValido = false;
-
-            while (!esValido)
+            while (true)
             {
-                Console.WriteLine($"{ingreso}");
-                string input = Console.ReadLine();
-
-                if (int.TryParse(input, out resultado))
+                try
                 {
-                    if (resultado >= min && resultado <= max)
-                    {
-                        esValido = true;
-                        return resultado;
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Error. El numero debe estar entre {min} y {max}");
-                    }
+                    Console.WriteLine($"{ingreso}");
+                    int input = int.Parse(Console.ReadLine());
+                    return input;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"{e.Message} Debe ingresar un numero entero");
                 }
             }
-            return 0;
         }
+        
 
         public static string PedirPatenteValida(string mensaje)
         {
@@ -77,20 +69,14 @@ namespace GestionDeFlotas.Utils
         public static double IngresarDouble(string ingreso)
         {
             double resultado;
-            bool esValido = false;
+            Console.Write($"{ingreso}: ");
 
-            while (!esValido)
+            while (!double.TryParse(Console.ReadLine(), out resultado))
             {
-                Console.WriteLine($"{ingreso}");
-                string input = Console.ReadLine();
-
-                if (double.TryParse(input, out resultado))
-                {
-                    esValido = true;
-                    return resultado;
-                }
+                Console.WriteLine("Error: Ingrese un valor numérico válido.");
+                Console.Write($"{ingreso}: ");
             }
-            return 0;
+            return resultado;
         }
     }
 }

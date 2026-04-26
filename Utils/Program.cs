@@ -15,7 +15,7 @@ namespace GestionDeFlotas.Utils
                 "2. Registrar Servicio: \n" +
                 "3. Mandar al taller: \n" +
                 "4. Listar Flota: \n" +
-                "5. Guardar y Salir:\n", 1, 5);
+                "5. Guardar y Salir:\n");
                 switch (opcion)
                 {
                     case 1:
